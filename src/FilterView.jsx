@@ -13,6 +13,14 @@ const FunFacts = [
   "There are actually more public libraries in the US than McDonald's.",
   "The last letter added to the English alphabet wasn't Z — it was the letter J.",
   "The voice of Mickey Mouse and the voice of Minnie Mouse got married IRL.",
+  "Dolphins give names to each other.",
+  "Finland has more saunas than cars.",
+  "Got a song stuck in your head? That’s called an “earworm.”",
+  "In 2016, Mozart sold more albums than Beyoncé.",
+  "Some golf balls are filled with honey.",
+  "Tomatoes have more genes than humans.",
+  "It’s impossible to burp in space.",
+  "How do you tell if a cranberry is ripe? It’ll bounce like a rubber ball.",
 ];
 
 function FilterView() {
@@ -35,7 +43,9 @@ function FilterView() {
           {topic}
         </button>
       ))}
-      <div className="FunFact">{FunFacts[Math.floor(Math.random() * 10)]}</div>
+      <div className="FunFact">
+        {FunFacts[Math.floor(Math.random() * FunFacts.length)]}
+      </div>
     </div>
   );
 }
