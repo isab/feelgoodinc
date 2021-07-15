@@ -1,0 +1,63 @@
+.FilterView {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  padding: 32px;
+}
+
+.button {
+  width: 30vw;
+  border: 5px solid;
+  border-radius: 33px;
+  font-size: 40px;
+  color: black;
+  background-color: white;
+  padding: 12px;
+  appearance: none;
+  margin-bottom: 16px;
+  cursor: pointer;
+
+  &.Info {
+    border-color: #fe3b8b;
+
+    &:hover {
+      background-color: #fe3b8b;
+    }
+  }
+  &.Activities {
+    border-color: #18d296;
+
+    &:hover {
+      background-color: #18d296;
+    }
+  }
+  &.Advice {
+    border-color: #6563df;
+
+    &:hover {
+      background-color: #6563df;
+    }
+  }
+  &.Help {
+    border-color: #fcc12f;
+
+    &:hover {
+      background-color: #fcc12f;
+    }
+  }
+}
+
+.FunFact {
+  font-size: 30px;
+  color: black;
+  width: 80vw;
+  margin: 3vw 0;
+  text-align: center;
+}
+
+@media (max-width: 800px) {
+  .button {
+    width: 300px;
+  }
+}

@@ -1,0 +1,20 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  min-height: 100vh;
+}
+
+.App-header {
+  font-size: 70px;
+  color: black;
+  margin: 32px 0 16px;
+}
+
+.App-subheader {
+  font-size: 30px;
+  color: black;
+  margin-bottom: 48px;
+}
