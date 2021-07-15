@@ -1,49 +1,20 @@
 import React, { useEffect, useState } from "react";
 import format from "date-fns/format";
 import "./ListView.scss";
-import { EasybaseProvider, useEasybase } from "easybase-react";
-
-// const today = "July 15, 2021";
-// const fakeData = [
-//   {
-//     topic: "Activities",
-//     title: "Join Mike For Soulcycle on July 15",
-//     doc: "https://www.google.com",
-//     createdAt: today,
-//     views: 12,
-//   },
-//   {
-//     topic: "Info",
-//     title: "*New* Learning $800 Budget!!",
-//     doc: "https://www.google.com",
-//     createdAt: today,
-//     views: 34,
-//   },
-//   {
-//     topic: "Advice",
-//     title: "How do I ask for a promotion?",
-//     doc: "https://www.google.com",
-//     createdAt: today,
-//     views: 567,
-//   },
-//   {
-//     topic: "Help",
-//     title: "I'm having a personal crisis. Where can I get help?",
-//     doc: "https://www.google.com",
-//     createdAt: today,
-//     views: 89,
-//   },
-// ];
+import { useEasybase } from "easybase-react";
 
 function ListView({ currTopic }) {
-  const [easybaseData, setEasybaseData] = useState([]);
   const { db, e, useReturn } = useEasybase();
 
   const [currFilter, setCurrFilter] = useState(currTopic || null);
   const [currPosts, setCurrPosts] = useState({});
 
   const { frame } = useReturn(
-    () => db("POSTS").return().where(e.isNotNull("topic")),
+    () =>
+      db("POSTS")
+        .return()
+        .where(e.isNotNull("topic"))
+        .orderBy({ by: "createdat", sort: "desc" }),
     []
   );
 
@@ -75,10 +46,28 @@ function ListView({ currTopic }) {
     setCurrPosts(grouped);
   };
 
+  async function openAndRecord(doc, title) {
+    let singleRecord = await db("POSTS")
+      .return()
+      .where(e.eq("title", title))
+      .one();
+
+    await db("POSTS")
+      .return()
+      .where({ _key: singleRecord._key })
+      .set({ views: singleRecord.views + 1 })
+      .one();
+
+    const newWindow = window.open(doc, "_blank", "noopener,noreferrer");
+    if (newWindow) newWindow.opener = null;
+  }
+
   return (
     <div className="ListView">
       <div className="ListViewHeader">
-        <img src="feelgoodinc.svg" />
+        <a href="/">
+          <img src="feelgoodinc.svg" />
+        </a>
         <div className="HeaderText">
           <h1>FEEL GOOD INC.</h1>
           <h2>Exercise your Right to Wellness</h2>
@@ -104,7 +93,11 @@ function ListView({ currTopic }) {
               <span className="viewstitle">VIEWS</span>
             </p>
             {currPosts[date].map((post) => (
-              <a key={post.title} href={post.doc} target="_blank">
+              <a
+                key={post.title}
+                target="_blank"
+                onClick={() => openAndRecord(post.doc, post.title)}
+              >
                 <li className={post.topic}>
                   <span className="title">{post.title}</span>
                   <span className="views">{post.views}</span>

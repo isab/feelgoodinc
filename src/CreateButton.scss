@@ -1,0 +1,67 @@
+.CreateButton {
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  span {
+    font-size: 4em;
+    height: 100%;
+  }
+}
+
+.CreateForm {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background-color: #fffcf3;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .close {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 4em;
+    right: 4em;
+
+    img {
+      height: 24px;
+      width: 24px;
+    }
+  }
+
+  input {
+    padding: 0.25em 0.5em;
+    margin: 0;
+    height: calc(5em - 10px);
+    width: calc(30em - 16px);
+    border: none;
+    margin-bottom: 32px;
+  }
+
+  select {
+    height: 5em;
+    width: 30em;
+    border: none;
+    padding: 0.25em 0.5em;
+    margin-bottom: 16px;
+  }
+
+  button.Submit {
+    width: 30em;
+    border: none;
+    background-color: #adeda3;
+    padding: 1em;
+  }
+}

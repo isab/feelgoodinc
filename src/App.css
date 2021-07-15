@@ -18,3 +18,10 @@
   color: black;
   margin-bottom: 48px;
 }
+
+.CreateFloat {
+  display: block;
+  position: fixed;
+  bottom: 3em;
+  right: 3em;
+}
