@@ -53,7 +53,12 @@ function CreateButton() {
         onChange={(e) => setCurrTitle(e.target.value)}
         placeholder="How can we help you exercise your right to wellness?"
       />
-      <button type="button" className="Submit" onClick={submitPost}>
+      <button
+        type="button"
+        className="Submit"
+        disabled={!currTitle || !currTopic}
+        onClick={submitPost}
+      >
         Submit
       </button>
     </div>
