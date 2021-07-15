@@ -65,14 +65,11 @@ function ListView({ currTopic }) {
   return (
     <div className="ListView">
       <div className="ListViewHeader">
-        <a href="/">
-          <img src="feelgoodinc.svg" />
-        </a>
         <div className="HeaderText">
           <h1>FEEL GOOD INC.</h1>
           <h2>Exercise your Right to Wellness</h2>
         </div>
-        <img src="qrcode.svg" />
+        <img src="feelgoodincqr.svg" />
       </div>
       <div className="Posts">
         {currFilter && (

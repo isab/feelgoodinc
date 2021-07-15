@@ -8,42 +8,41 @@
 
 .button {
   width: 30vw;
-  border: 5px solid;
+  border: none;
   border-radius: 33px;
   font-size: 40px;
   color: black;
-  background-color: white;
   padding: 12px;
   appearance: none;
   margin-bottom: 16px;
   cursor: pointer;
 
   &.Info {
-    border-color: #fe3b8b;
+    background-color: #ffb1d1;
 
     &:hover {
-      background-color: #fe3b8b;
+      opacity: 0.7;
     }
   }
   &.Activities {
-    border-color: #18d296;
+    background-color: #a3edd5;
 
     &:hover {
-      background-color: #18d296;
+      opacity: 0.7;
     }
   }
   &.Advice {
-    border-color: #6563df;
+    background-color: #cfdaff;
 
     &:hover {
-      background-color: #6563df;
+      opacity: 0.7;
     }
   }
   &.Help {
-    border-color: #fcc12f;
+    background-color: #fee6ac;
 
     &:hover {
-      background-color: #fcc12f;
+      opacity: 0.7;
     }
   }
 }
